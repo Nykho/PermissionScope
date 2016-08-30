@@ -269,13 +269,13 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
                     let prettyDescription = type.prettyDescription
                     if currentStatus == .Authorized {
                         self.setButtonAuthorizedStyle(button)
-                        button.setTitle("Allowed \(prettyDescription)".localized.uppercaseString, forState: .Normal)
+                        button.setTitle("\(prettyDescription) Autorizado".localized.uppercaseString, forState: .Normal)
                     } else if currentStatus == .Unauthorized {
                         self.setButtonUnauthorizedStyle(button)
-                        button.setTitle("Denied \(prettyDescription)".localized.uppercaseString, forState: .Normal)
+                        button.setTitle("\(prettyDescription) Denegado".localized.uppercaseString, forState: .Normal)
                     } else if currentStatus == .Disabled {
                         //                setButtonDisabledStyle(button)
-                        button.setTitle("\(prettyDescription) Disabled".localized.uppercaseString, forState: .Normal)
+                        button.setTitle("\(prettyDescription) Desabilitado".localized.uppercaseString, forState: .Normal)
                     }
                     
                     let label = self.permissionLabels[index]
@@ -330,9 +330,9 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         // this is a bit of a mess, eh?
         switch type {
         case .LocationAlways, .LocationInUse:
-            button.setTitle("Enable \(type.prettyDescription)".localized.uppercaseString, forState: .Normal)
+            button.setTitle("Permitir \(type.prettyDescription)".localized.uppercaseString, forState: .Normal)
         default:
-            button.setTitle("Allow \(type)".localized.uppercaseString, forState: .Normal)
+            button.setTitle("Permitir \(type)".localized.uppercaseString, forState: .Normal)
         }
         
         button.addTarget(self, action: Selector("request\(type)"), forControlEvents: .TouchUpInside)
